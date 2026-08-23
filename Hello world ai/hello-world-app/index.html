@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World</title>
+  <link rel="stylesheet" href="hello.css" />
+</head>
+<body>
+  <h1>Hello</h1>
+
+  <form id="helloForm">
+    <label for="fname">Enter your name:</label>
+    <input type="text" id="fname" name="fname" />
+    <button type="submit">Say Hello</button>
+  </form>
+
+  <p id="greeting">Your greeting will appear here.</p>
+
+  <script>
+    const form = document.getElementById("helloForm");
+    const nameInput = document.getElementById("fname");
+    const greeting = document.getElementById("greeting");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = nameInput.value.trim();
+
+      if (name) {
+        greeting.textContent = "Hello, " + name + "!";
+      } else {
+        greeting.textContent = "Please enter your name.";
+      }
+    });
+  </script>
+</body>
+</html>

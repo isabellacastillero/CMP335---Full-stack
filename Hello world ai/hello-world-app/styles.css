@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 80px;
+}
+
+form {
+  margin: 20px 0;
+}
+
+input {
+  padding: 8px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 12px;
+}
+
+#greeting {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
