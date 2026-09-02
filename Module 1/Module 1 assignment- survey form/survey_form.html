@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="survey_form.css">
+</head>
+
+</body>
+    <h1>Platform 9 3/4: Your Hogwarts Journey</h1>
+    <p>Thank you for taking the time to fill out this form!</p>
+
+    <form id="survey-form">
+        <label for="wizarding-name" id="what-is-your-wizarding-name-label">What is your wizarding name?*</label><br>
+        <input type="text" id="wizarding-name" name="wizarding-name" placeholder="Enter your name" required><br>
+
+
+        <label for="dropdown">Which Hogwarts house do you belong to?</label><br>
+        <select id="dropdown" name="role">
+            <option value="" disabled selected>Select your option</option>
+            <option value="gryffindor">Gryffindor</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="ravenclaw">Ravenclaw</option>
+            <option value="slytherin">Slytherin</option>
+        </select><br>
+
+        <label>Which magical subject would you most want to take at Hogwarts?</label><br>
+        <div class="radio-group">
+            <input type="radio" id="defense" name="subject" value="defense">
+            <label for="defense">Defense Against the Dark Arts</label><br>
+
+            <input type="radio" id="potions" name="subject" value="potions">
+            <label for="potions">Potions</label><br>
+
+            <input type="radio" id="transfiguration" name="subject" value="transfiguration">
+            <label for="transfiguration">Transfiguration</label><br>
+
+            <input type="radio" id="charms" name="subject" value="charms">
+            <label for="charms">Charms</label><br>
+                        
+            <input type="radio" id="care-of-magical-creatures" name="subject" value="care-of-magical-creatures">
+            <label for="care-of-magical-creatures">Care of Magical Creatures</label><br>
+        </div>
+
+        <label>Which magical activities would you want to try? (Select all that apply.)</label><br>
+        <div class="checkbox-group">
+            <input type="checkbox" id="quidditch" name="activity" value="quidditch">
+            <label for="quidditch">Quidditch</label><br>
+
+            <input type="checkbox" id="dueling-club" name="activity" value="dueling-club">
+            <label for="dueling-club">Dueling Club</label><br>
+
+            <input type="checkbox" id="herbology-garden" name="activity" value="herbology-garden">
+            <label for="herbology-garden">Herbology Garden</label><br>
+
+            <input type="checkbox" id="wizard-chess" name="activity" value="wizard-chess">
+            <label for="wizard-chess">Wizard Chess</label><br>
+        </div>
+
+        <label for="answer">You have just arrived at Hogwarts. Describe what you would do on your first day.</label><br>
+        <textarea id="answer" name="answer" rows="4" cols="50" placeholder="Enter your answer here..."></textarea><br>
+
+        <button type="submit">Submit My Hogwarts Journey</button><br>
+    </form>
+
+    <script>
+        document.getElementById('survey-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const wizardingName = document.getElementById("wizarding-name");
+            if (wizardingName.value.trim() === "") {
+                alert("Please enter your wizarding name.");
+                wizardingName.focus();
+                return;
+            }
+            alert('Congratulations ' + wizardingName.value + '!' + ' Form submitted successfully.');
+
+        });
+    </script>
+</body>
+</html> 
+

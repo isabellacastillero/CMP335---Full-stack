@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Container that holds my four personal entries */
+.myflexboxRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Each personal entry takes up 25% of the row on larger screens */
+.myflexboxColumn {
+  flex: 25%;
+  padding: 20px;
+}
+
+/* On screens 992px or smaller, display two entries per row */
+@media screen and (max-width: 992px) {
+  .myflexboxColumn {
+    flex: 50%;
+  }
+}
+
+/* On screens 600px or smaller, stack all entries vertically */
+@media screen and (max-width: 750px) {
+  .myflexboxRow {
+    flex-direction: column;
+  }
+}

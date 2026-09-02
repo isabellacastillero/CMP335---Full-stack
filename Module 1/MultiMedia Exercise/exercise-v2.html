@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Media Story</title>
+    <style>
+      :root {
+        --bg-1: #fff7ec;
+        --bg-2: #ffd8d1;
+        --card-bg: rgba(255, 255, 255, 0.78);
+        --card-border: rgba(255, 255, 255, 0.7);
+        --text: #2f1a36;
+        --muted: #5f4668;
+        --accent: #ff6b8a;
+        --accent-2: #7bdff2;
+        --accent-3: #ffb703;
+        --shadow: rgba(117, 76, 110, 0.22);
+      }
+
+      :root[data-theme="sunset"] {
+        --bg-1: #fff7ec;
+        --bg-2: #ffd8d1;
+        --accent: #ff6b8a;
+        --accent-2: #7bdff2;
+        --accent-3: #ffb703;
+      }
+
+      :root[data-theme="ocean"] {
+        --bg-1: #eafaff;
+        --bg-2: #bfdcff;
+        --accent: #1d9bf0;
+        --accent-2: #69d2e7;
+        --accent-3: #7cf0d3;
+      }
+
+      :root[data-theme="neon"] {
+        --bg-1: #140f2d;
+        --bg-2: #2b1a66;
+        --card-bg: rgba(22, 19, 48, 0.7);
+        --card-border: rgba(145, 119, 255, 0.5);
+        --text: #f4ecff;
+        --muted: #d4c9ef;
+        --accent: #ff4ecd;
+        --accent-2: #00f5d4;
+        --accent-3: #ffc857;
+        --shadow: rgba(102, 71, 182, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        color: var(--text);
+        transition: all 0.4s ease;
+      }
+
+      .page-shell {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 20px 60px;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 28px 30px;
+        border: 1px solid var(--card-border);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 18px 40px var(--shadow);
+        margin-bottom: 28px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1.1;
+      }
+
+      .hero p:last-child {
+        margin: 12px 0 0;
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .theme-picker {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .theme-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 10px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        color: var(--text);
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .theme-btn:hover,
+      .theme-btn.active {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+        gap: 24px;
+      }
+
+      .media-card {
+        position: relative;
+        overflow: hidden;
+        padding: 22px;
+        border: 1px solid var(--card-border);
+        border-radius: 26px;
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 18px 30px var(--shadow);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .media-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 22px 36px var(--shadow);
+      }
+
+      .media-card::before {
+        content: "";
+        position: absolute;
+        inset: -30% auto auto -15%;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 65%);
+        pointer-events: none;
+      }
+
+      .tag {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 8px 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .media-card h2 {
+        margin: 18px 0 12px;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+      }
+
+      .media-card p {
+        margin: 0 0 18px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .cta-link,
+      .favorite-btn,
+      #locationBtn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .cta-link {
+        padding: 12px 18px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        box-shadow: 0 10px 24px rgba(111, 65, 122, 0.22);
+      }
+
+      .cta-link:hover,
+      .favorite-btn:hover,
+      #locationBtn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+      }
+
+      .image-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        margin: 16px 0 18px;
+        border: 2px solid rgba(255,255,255,0.25);
+      }
+
+      .image-wrap img {
+        display: block;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+
+      .image-wrap:hover img {
+        transform: scale(1.05);
+      }
+
+      .favorite-btn,
+      #locationBtn {
+        padding: 12px 16px;
+        background: linear-gradient(135deg, var(--accent-3), var(--accent));
+        color: white;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        border-radius: 18px;
+        margin-top: 14px;
+        background: #121212;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .location-box {
+        margin-top: 16px;
+        min-height: 52px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: rgba(123, 223, 242, 0.18);
+        border: 1px solid rgba(123, 223, 242, 0.5);
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 840px) {
+        .hero {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .theme-picker {
+          justify-content: flex-start;
+        }
+
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Personal media journal</p>
+          <h1>A Little About Me</h1>
+          <p>
+            A more colorful and interactive version of my favorite things, memories,
+            and a little bit of where I am right now.
+          </p>
+        </div>
+
+        <div class="theme-picker" aria-label="Theme selector">
+          <button class="theme-btn active" data-theme="sunset" type="button">Sunset</button>
+          <button class="theme-btn" data-theme="ocean" type="button">Ocean</button>
+          <button class="theme-btn" data-theme="neon" type="button">Neon</button>
+        </div>
+      </header>
+
+      <main class="gallery">
+        <article class="media-card">
+          <span class="tag">Favorite track</span>
+          <h2>Entry 1 - A Song I Like</h2>
+          <p>One of my go-to songs for good energy and a little extra motivation.</p>
+          <a
+            class="cta-link"
+            href="https://www.youtube.com/watch?v=ajUMhpotf8k&list=RDajUMhpotf8k&start_radio=1"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Play the song
+          </a>
+        </article>
+
+        <article class="media-card">
+          <span class="tag">Family moment</span>
+          <h2>Entry 2 - My Nephew</h2>
+          <p>My favorite person to smile at when life feels a little busy.</p>
+          <div class="image-wrap">
+            <img src="MyMedia/mateo.jpeg" alt="A photo of my nephew" title="My nephew" />
+          </div>
+          <button class="favorite-btn" type="button">❤ Save this moment</button>
+        </article>
+
+        <article class="media-card">
+          <span class="tag">Gathering</span>
+          <h2>Entry 3 - Bonfire with Friends</h2>
+          <p>Some nights are best spent around the fire, laughing and making memories.</p>
+          <video controls preload="metadata">
+            <source src="MyMedia/bonfire.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </article>
+
+        <article class="media-card">
+          <span class="tag">Current location</span>
+          <h2>Entry 4 - Where Am I?</h2>
+          <p>Tap the button below to reveal your current coordinates.</p>
+          <button id="locationBtn" type="button">Find my location</button>
+          <div id="locationOutput" class="location-box">📍 Waiting for your location...</div>
+        </article>
+      </main>
+    </div>
+
+    <script>
+      const themeButtons = document.querySelectorAll('.theme-btn');
+      const root = document.documentElement;
+
+      themeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const selectedTheme = button.dataset.theme;
+          root.setAttribute('data-theme', selectedTheme);
+
+          themeButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+        });
+      });
+
+      const favoriteButton = document.querySelector('.favorite-btn');
+      favoriteButton.addEventListener('click', () => {
+        favoriteButton.textContent = '❤ Saved!';
+        favoriteButton.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      });
+
+      const locationButton = document.getElementById('locationBtn');
+      const locationOutput = document.getElementById('locationOutput');
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          locationButton.textContent = 'Locating...';
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude.toFixed(5);
+              const long = position.coords.longitude.toFixed(5);
+              locationOutput.innerHTML = `Latitude: ${lat}<br>Longitude: ${long}`;
+              locationButton.textContent = 'Location found';
+            },
+            () => {
+              locationOutput.textContent = 'Location access was denied. Please allow it and try again.';
+              locationButton.textContent = 'Try again';
+            }
+          );
+        } else {
+          locationOutput.textContent = 'Geolocation is not supported by this browser.';
+          locationButton.textContent = 'Not supported';
+        }
+      }
+
+      locationButton.addEventListener('click', getLocation);
+    </script>
+  </body>
+</html>

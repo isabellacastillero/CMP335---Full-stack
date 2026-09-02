@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="exercise.css">
+</head>
+
+<body>
+
+  <h2>A Little About Me</h2>
+
+  <p><strong>This page contains a few things that are important to me.</strong></p>
+  <p>Resize the browser window to see how the four entries respond to different screen sizes.</p>
+  <button onclick="showMessage()">Click for a Welcome Message</button>
+
+<p id="welcomeMessage"></p>
+
+<script>
+  function showMessage() {
+    document.getElementById("welcomeMessage").innerHTML =
+      "Welcome to my personal webpage! I hope you enjoy learning a little about me.";
+  }
+</script>
+
+
+  <div class="myflexboxRow">
+
+    <!-- Entry 1 -->
+    <div class="myflexboxColumn" style="background-color:lightseagreen;">
+      <h2>Entry 1 - A Song I Like</h2>
+      
+      <p>
+        <a href="https://www.youtube.com/watch?v=ajUMhpotf8k&list=RDajUMhpotf8k&start_radio=1" target="_blank">
+          Click here to listen to this song that I like!
+        </a>
+      </p>
+    </div>
+
+
+    <!-- Entry 2 -->
+    <div class="myflexboxColumn" style="background-color:lightgoldenrodyellow;">
+      <h2>Entry 2 - My Nephew</h2>
+
+      <p>
+        <img src="MyMedia/mateo.jpeg"
+             alt="A photo of my nephew"
+             title="My nephew"
+             style="width:50%;">
+      </p>
+    </div>
+
+
+    <!-- Entry 3 -->
+    <div class="myflexboxColumn" style="background-color:lightblue;">
+      <h2>Entry 3 - A Video of a bonfire with friends</h2>
+
+      <p>
+        <video width="50%" controls>
+          <source src="MyMedia/bonfire.MP4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </p>
+    </div>
+
+
+    <!-- Entry 4 -->
+    <div class="myflexboxColumn" style="background-color:lightcoral;">
+      <h2>Entry 4 - Where Am I?</h2>
+
+      <p>Click the button to find your current coordinates.</p>
+
+      <button onclick="getLocation()">Find My Location</button>
+
+      <p id="demo"></p>
+
+      <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+      </script>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
