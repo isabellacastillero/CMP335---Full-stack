@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palindrome Checker</title>
+
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style_palindrome.css">
+
+</head>
+
+
+<body>
+
+   
+    <header class="border-bottom">
+
+        <div class="container py-3">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <a
+                    href="#"
+                    class="text-dark text-decoration-none">
+
+                    <span class="fs-4">
+                        Palindrome Checker
+                    </span>
+
+                </a>
+
+                <span class="text-muted">
+                    Module 2 - Assignment 1
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+
+    <main>
+
+
+        
+        <section class="container text-center py-5">
+
+            <h1 class="display-4 fw-bold">
+                Is Your Word a Palindrome?
+            </h1>
+
+            <p class="lead text-muted">
+                Enter a word and choose an algorithm to check
+                if it is a palindrome.
+            </p>
+
+        </section>
+
+
+
+      
+        <section class="container pb-5">
+
+            <div class="row g-4">
+
+
+           
+                <div class="col-md-5">
+
+                    <div class="checker-box p-4">
+
+                        <h2 class="mb-4">
+                            Check a Word
+                        </h2>
+
+
+                        <form id="palindromeForm">
+
+
+                         
+                            <div class="mb-3">
+
+                                <label
+                                    for="word"
+                                    class="form-label">
+
+                                    Enter a word:
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="word"
+                                    class="form-control">
+
+                            </div>
+
+
+
+                            
+                            <div class="mb-3">
+
+                                <label
+                                    for="algorithm"
+                                    class="form-label">
+
+                                    Choose an algorithm:
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="algorithm"
+                                    class="form-control"
+                                    min="1"
+                                    max="3"
+                                    placeholder="Enter 1, 2, or 3">
+
+                            </div>
+
+
+
+                         
+                            <div class="mb-4">
+
+                                <p class="mb-2">
+                                    Case sensitivity:
+                                </p>
+
+
+                                <div class="form-check">
+
+                                    <input
+                                        type="radio"
+                                        id="caseSensitive"
+                                        name="caseOption"
+                                        value="sensitive"
+                                        class="form-check-input"
+                                        checked>
+
+                                    <label
+                                        for="caseSensitive"
+                                        class="form-check-label">
+
+                                        Case Sensitive
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="form-check">
+
+                                    <input
+                                        type="radio"
+                                        id="caseInsensitive"
+                                        name="caseOption"
+                                        value="insensitive"
+                                        class="form-check-input">
+
+                                    <label
+                                        for="caseInsensitive"
+                                        class="form-check-label">
+
+                                        Case Insensitive
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+
+                         
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-100">
+
+                                Check Word
+
+                            </button>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+        
+                <div class="col-md-7">
+
+                    <div class="results-box p-4">
+
+                        <h2 class="mb-4">
+                            Results
+                        </h2>
+
+
+                        <div class="results-flex">
+
+
+                       
+                            <div class="result-list">
+
+                                <h3>
+                                    Algorithm 1
+                                </h3>
+                                <ul id="algorithm1Results"></ul>
+
+                            </div>
+
+
+
+                 
+                            <div class="result-list">
+
+                                <h3>
+                                    Algorithm 2
+                                </h3>
+                                <ul id="algorithm2Results"></ul>
+
+                            </div>
+
+           
+                            <div class="result-list">
+
+                                <h3>
+                                    Algorithm 3
+                                </h3>
+
+                                <ul id="algorithm3Results"></ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+ 
+        <section class="container pb-5">
+
+            <div class="info-box p-5 text-center">
+
+                <h2>
+                    What is a palindrome?
+                </h2>
+
+                <p class="lead mb-0">
+
+                    A palindrome is a word that reads the same
+                    forward and backward.
+
+                    Examples include
+                    <strong>racecar</strong>,
+                    <strong>level</strong>, and
+                    <strong>madam</strong>.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+
+    <footer class="border-top py-4">
+
+        <div class="container text-center">
+
+            <p class="text-muted mb-0">
+
+                Palindrome Checker &copy; 2026
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script src="script_palindrome.js"></script>
+
+</body>
+
+
+

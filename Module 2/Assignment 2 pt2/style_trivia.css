@@ -1,0 +1,45 @@
+/* General page styling */
+body {
+    background-color: #f4f7fb;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Navigation bar */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+
+/* Question */
+#question {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+
+/* Answer buttons */
+.answer-button {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+/* Result message */
+#result {
+    min-height: 30px;
+}
+
+
+/* Score */
+#score {
+    font-weight: bold;
+}

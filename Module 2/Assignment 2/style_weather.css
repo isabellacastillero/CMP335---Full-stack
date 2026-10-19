@@ -1,0 +1,60 @@
+
+/* General page styling */
+body {
+    background-color: #f4f7fb;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Navigation bar */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Search card */
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+
+/* Search section heading */
+.card-title {
+    margin-bottom: 10px;
+}
+
+
+/* Current temperature */
+#currentTemperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+
+/* Forecast cards */
+.forecast-card {
+    text-align: center;
+    height: 100%;
+}
+
+
+
+/* Weather icon */
+.weather-icon {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+
+/* Forecast temperature */
+.forecast-temperature {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+/* Error message */
+#errorMessage {
+    min-height: 24px;
+}

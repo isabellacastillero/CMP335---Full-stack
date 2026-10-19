@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Container for the flexboxes */
+.myflexboxRow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create three columns */
+.myflexboxColumn {
+    flex: 33%;
+    padding: 20px;
+}
+
+/* Encrypted data goes underneath the other sections */
+.encryptedColumn {
+    flex: 100%;
+    padding: 20px;
+}
+
+/* Stack everything on smaller screens */
+@media screen and (max-width: 700px) {
+    .myflexboxRow {
+        flex-direction: column;
+    }
+}

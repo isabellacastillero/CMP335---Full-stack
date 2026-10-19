@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2 exercise</title>
+
+    <link rel="stylesheet" href="exercise.css">
+    <script src="exercise.js"></script>
+</head>
+<body>
+
+    <h1>Statistics Calculator</h1>
+
+    <div class="myflexboxRow">
+
+        <div class="myflexboxColumn">
+            <h2>Set the Range</h2>
+
+            <form name="rangeForm">
+
+                Low value:
+                <input type="number" name="lowValue" value="">
+                <br /><br />
+
+                High value:
+                <input type="number" name="highValue" value="">
+                <br /><br />
+
+                <input type="button" value="Set Range"
+                    onclick="setRange()">
+
+            </form>
+        </div>
+
+
+        <div class="myflexboxColumn">
+            <h2>Enter a Number</h2>
+
+            <form name="myForm">
+
+                Input value:
+                <input type="number" name="newNumber" value="">
+                
+                <!-- Stores the numbers without displaying them -->
+                <input type="hidden" name="allNumbers" value="">
+
+                <br /><br />
+
+                <input type="button" value="Add Number"
+                    onclick="validateANDadd()">
+
+            </form>
+        </div>
+
+
+        <div class="myflexboxColumn">
+            <h2>Results</h2>
+
+            <p>Range: <span id="range"></span></p>
+
+            <p>Mean: <span id="mean"></span></p>
+
+            <p>Median: <span id="median"></span></p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+

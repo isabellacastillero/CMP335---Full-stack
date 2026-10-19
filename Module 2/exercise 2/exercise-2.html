@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Module 2 Exercise</title>
+
+    <link rel="stylesheet" href="exercise-2.css">
+    <script src="exercise-2.js"></script>
+</head>
+
+<body>
+
+    <h1>Web Service API Consumer Example</h1>
+
+    <div class="myflexboxRow">
+
+        <!-- User Input -->
+        <div class="myflexboxColumn">
+            <h2>Obtain user information</h2>
+
+            <label for="newParagraphs">How many paragraphs?</label>
+
+            <select id="newParagraphs">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <br><br>
+
+            <label for="baconType">Type of Bacon Ipsum:</label>
+
+            <select id="baconType">
+                <option value="meat">All Meat</option>
+                <option value="meat-and-filler">Meat and Filler</option>
+            </select>
+
+            <br><br>
+
+            <input
+                type="button"
+                value="Get my Bacon Ipsum!"
+                onclick="getBaconipsum()"
+            >
+        </div>
+
+
+        <!-- Raw JSON -->
+        <div class="myflexboxColumn">
+            <h2>Returned data in raw JSON</h2>
+
+            <p id="myRawData"></p>
+        </div>
+
+
+        <!-- Formatted Paragraphs -->
+        <div class="myflexboxColumn">
+            <h2>Returned data as formatted paragraphs</h2>
+
+            <div id="myFormattedData"></div>
+        </div>
+
+
+        <!-- Encrypted Data -->
+        <div class="encryptedColumn">
+            <h2>Encrypted data</h2>
+
+            <div id="myEncryptedData"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

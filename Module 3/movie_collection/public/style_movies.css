@@ -1,0 +1,207 @@
+
+/* Basic page styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111827;
+    color: #f3f4f6;
+    line-height: 1.5;
+}
+
+/* Page header */
+.header {
+    background-color: #4c1d95;
+    padding: 25px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header p {
+    margin-bottom: 0;
+    color: #e9d5ff;
+}
+
+/* Main layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 25px;
+}
+
+/* Form and movie collection sections */
+.form-section,
+.collection-section {
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #c4b5fd;
+}
+
+/* Movie form */
+#movie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#movie-form label {
+    font-weight: bold;
+}
+
+#movie-form input,
+#movie-form select {
+    padding: 10px;
+    border: 1px solid #4b5563;
+    border-radius: 5px;
+    background-color: #111827;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Buttons */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#submit-button {
+    background-color: #7c3aed;
+}
+
+#cancel-button {
+    background-color: #4b5563;
+}
+
+.form-buttons,
+.movie-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.edit-button {
+    background-color: #2563eb;
+}
+
+.delete-button {
+    background-color: #dc2626;
+}
+
+/* Status messages */
+#message {
+    min-height: 24px;
+    overflow-wrap: anywhere;
+}
+
+.message-success {
+    color: #86efac;
+}
+
+.message-error {
+    color: #fca5a5;
+}
+
+/* Movie cards */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #374151;
+    padding: 18px;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.movie-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ddd6fe;
+}
+
+.movie-card p {
+    margin: 5px 0;
+}
+
+.movie-card .rating {
+    color: #fde68a;
+    font-weight: bold;
+}
+
+.movie-card .watched-status {
+    font-weight: bold;
+}
+
+.movie-actions {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+#movie-count {
+    color: #d1d5db;
+}
+
+.empty-message {
+    color: #d1d5db;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 15px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+/* Smaller screens */
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .form-section,
+    .collection-section {
+        padding: 15px;
+    }
+
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
