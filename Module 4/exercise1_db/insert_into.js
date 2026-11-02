@@ -10,7 +10,7 @@ let con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  let sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+  let sql = "INSERT INTO customers (name, address) VALUES ('Jo', 'JoJo')";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted");
